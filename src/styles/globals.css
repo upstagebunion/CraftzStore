@@ -8,11 +8,19 @@
   --foreground: #292662;
   --primary: #292662;
   --secondary: #C31349;
+  --overWhite: #292662;
+  --button: #292662;
+  --buttonHover: #C31349;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-overWhite: var(--overWhite);
+  --color-button: var(--button);
+  --color-buttonHover: var(--buttonHover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-eras: var(--font-eras);
@@ -24,6 +32,9 @@
     --foreground: #ededed;
     --primary: #ededed;
     --secondary: #C31349;
+    --overWhite: #292662;
+    --button: #292662;
+    --buttonHover: #C31349;
   }
 }
 

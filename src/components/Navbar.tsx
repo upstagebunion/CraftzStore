@@ -5,8 +5,10 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import NavLink from '@/components/NavLink';
+import useDarkMode from '@/hooks/useDarkMode';
 
 export default function Navbar() {
+    const isDarkMode = useDarkMode();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     useEffect(() => { //Used to avoid scroll when menu open, remove if deprecate
         if (mobileMenuOpen) {
@@ -51,14 +53,14 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href="/" className="relative h-10 w-32 md:w-48 block md:mr-0 mx-auto md:mx-0">
                     <Image 
-                        src='/logo_solo.png'
+                        src={isDarkMode ? '/favicon-32x32.png' : '/logo_solo.png'}
                         fill={true}
                         alt="Craftz"
                         style={{ objectFit: 'contain' }}
                         className="md:hidden"
                     />
                     <Image 
-                        src='/logo_horizontal.png'
+                        src= {isDarkMode ? '/favicon-32x32.png' : '/logo_horizontal.png'}
                         fill={true}
                         alt="Craftz"
                         style={{ objectFit: 'contain' }}
