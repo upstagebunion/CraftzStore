@@ -5,7 +5,9 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #292662;
+  --primary: #292662;
+  --secondary: #C31349;
 }
 
 @theme inline {
@@ -13,19 +15,22 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-eras: var(--font-eras);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #292662;
     --foreground: #ededed;
+    --primary: #ededed;
+    --secondary: #C31349;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: eras;
 }
 
 @layer base {
@@ -33,9 +38,14 @@ body {
     scroll-behavior: smooth;
     @apply text-[16px] md:text-[18px];
   }
+
+  header{
+    background-color: var(--background);
+    color: var(--foreground);
+  }
   
   body {
-    @apply bg-gray-50 text-[#292662] antialiased;
+    /*@apply bg-gray-50 text-[#292662] antialiased;*/
   }
 
   body.menu-open {
@@ -82,6 +92,15 @@ body {
 
   .card {
     @apply bg-white rounded-lg shadow-md overflow-hidden;
+  }
+
+  footer .socialMedia a, .pagos span {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+
+  footer .socialMedia a:hover{
+    color: white;
   }
 }
 

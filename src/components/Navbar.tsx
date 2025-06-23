@@ -33,12 +33,12 @@ export default function Navbar() {
                 />
             )}
         </AnimatePresence>
-    <header className="bg-white shadow-sm sticky top-0 z-20">
+    <header className="shadow-sm sticky top-0 z-20">
         <div className="container mx-auto px-4">
             <div className="flex justify-between items-center py-4">
                 {/* Mobile menu button */}
                 <button 
-                    className="md:hidden p-2 text-gray-700"
+                    className="md:hidden p-2"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     aria-label="Toggle menu"
                 >
@@ -68,7 +68,7 @@ export default function Navbar() {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex space-x-8">
-                    <NavLink href="">Inicio</NavLink>
+                    <NavLink href="/">Inicio</NavLink>
                     <NavLink href="/productos">productos</NavLink>
                     <NavLink href="/about">about</NavLink>
                     <NavLink href="/contact">contact</NavLink>
@@ -76,16 +76,16 @@ export default function Navbar() {
 
                 {/* Icons */}
                 <div className="flex items-center space-x-4">
-                    <button className="p-2 text-gray-700 hover:text-blue-600">
+                    <button className="p-2 hover:text-blue-600">
                     <MagnifyingGlassIcon className="h-5 w-5" />
                     </button>
-                    <button className="p-2 text-gray-700 hover:text-blue-600 relative">
+                    <button className="p-2 hover:text-blue-600 relative">
                     <ShoppingCartIcon className="h-5 w-5" />
                     <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                         0
                     </span>
                     </button>
-                    <Link href="/login" className="p-2 text-gray-700 hover:text-blue-600">
+                    <Link href="/login" className="p-2 hover:text-blue-600">
                     <UserIcon className="h-5 w-5" />
                     </Link>
                 </div>
@@ -121,34 +121,34 @@ export default function Navbar() {
                             exit={{ y: -20 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <Link 
+                            <NavLink 
                                 href="/" 
-                                className="text-gray-700 hover:text-blue-600 transition px-2 py-1"
+                                className="px-2 py-1"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Inicio
-                            </Link>
-                            <Link 
+                            </NavLink>
+                            <NavLink 
                                 href="/products" 
-                                className="text-gray-700 hover:text-blue-600 transition px-2 py-1"
+                                className="px-2 py-1"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Productos
-                            </Link>
-                            <Link 
+                            </NavLink>
+                            <NavLink 
                                 href="/about" 
-                                className="text-gray-700 hover:text-blue-600 transition px-2 py-1"
+                                className="px-2 py-1"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Nosotros
-                            </Link>
-                            <Link 
+                            </NavLink>
+                            <NavLink 
                                 href="/contact" 
-                                className="text-gray-700 hover:text-blue-600 transition px-2 py-1"
+                                className="px-2 py-1"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Contacto
-                            </Link>
+                            </NavLink>
                         </motion.nav>
                     </motion.div>
                 )}
