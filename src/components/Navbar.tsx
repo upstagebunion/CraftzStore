@@ -36,8 +36,8 @@ export default function Navbar() {
             )}
         </AnimatePresence>
     <header className="shadow-sm sticky top-0 z-20">
-        <div className="container mx-auto px-4">
-            <div className="flex justify-between items-center py-4">
+        <div>
+            <div className="flex justify-between items-center">
                 {/* Mobile menu button */}
                 <button 
                     className="md:hidden p-2"
@@ -51,16 +51,10 @@ export default function Navbar() {
                     )}
                 </button>
                 {/* Logo */}
-                <Link href="/" className="relative h-10 w-32 md:w-48 block md:mr-0 mx-auto md:mx-0">
+                <Link href="/" className="relative h-10 w-32 md:w-48 block md:mr-0 mx-auto md:mx-0 flex justify-center items-center">
+                    <p className="text-center font-bold text-3xl md:hidden pt-1">CRAFTZ</p>
                     <Image 
-                        src={isDarkMode ? '/favicon-32x32.png' : '/logo_solo.png'}
-                        fill={true}
-                        alt="Craftz"
-                        style={{ objectFit: 'contain' }}
-                        className="md:hidden"
-                    />
-                    <Image 
-                        src= {isDarkMode ? '/favicon-32x32.png' : '/logo_horizontal.png'}
+                        src= {isDarkMode ? '/logo_horizontal_white.png' : '/logo_horizontal.png'}
                         fill={true}
                         alt="Craftz"
                         style={{ objectFit: 'contain' }}
@@ -71,23 +65,23 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex space-x-8">
                     <NavLink href="/">Inicio</NavLink>
-                    <NavLink href="/productos">productos</NavLink>
+                    <NavLink href="/products">productos</NavLink>
                     <NavLink href="/about">about</NavLink>
                     <NavLink href="/contact">contact</NavLink>
                 </nav>
 
                 {/* Icons */}
                 <div className="flex items-center space-x-4">
-                    <button className="p-2 hover:text-blue-600">
+                    <button className="p-2">
                     <MagnifyingGlassIcon className="h-5 w-5" />
                     </button>
-                    <button className="p-2 hover:text-blue-600 relative">
+                    <button className="p-2 relative">
                     <ShoppingCartIcon className="h-5 w-5" />
                     <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                         0
                     </span>
                     </button>
-                    <Link href="/login" className="p-2 hover:text-blue-600">
+                    <Link href="/login" className="p-2">
                     <UserIcon className="h-5 w-5" />
                     </Link>
                 </div>
@@ -117,36 +111,40 @@ export default function Navbar() {
                         className="md:hidden overflow-hidden"
                     >
                         <motion.nav 
-                            className="flex flex-col space-y-3 pb-4"
+                            className="flex flex-col pb-1"
                             initial={{ y: -20 }}
                             animate={{ y: 0 }}
                             exit={{ y: -20 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <NavLink 
+                            <NavLink
+                                isMobile={true}
                                 href="/" 
-                                className="px-2 py-1"
+                                className="pl-10 bg-secondary"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Inicio
                             </NavLink>
-                            <NavLink 
+                            <NavLink
+                                isMobile={true}
                                 href="/products" 
-                                className="px-2 py-1"
+                                className=""
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Productos
                             </NavLink>
-                            <NavLink 
+                            <NavLink
+                                isMobile={true}
                                 href="/about" 
-                                className="px-2 py-1"
+                                className=""
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Nosotros
                             </NavLink>
-                            <NavLink 
+                            <NavLink
+                                isMobile={true}
                                 href="/contact" 
-                                className="px-2 py-1"
+                                className=""
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Contacto
