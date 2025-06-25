@@ -5,9 +5,12 @@
 
 :root {
   --background: #ffffff;
+  --background2: #d9d8f0;
   --foreground: #292662;
   --primary: #292662;
+  --primary2: #201e4d;
   --secondary: #C31349;
+  --secondary2: #970a34;
   --overWhite: #292662;
   --button: #292662;
   --buttonHover: #C31349;
@@ -15,9 +18,12 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-background2: var(--background2);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-primary2: var(--primary2);
   --color-secondary: var(--secondary);
+  --color-secondary2: var(--secondary2);
   --color-overWhite: var(--overWhite);
   --color-button: var(--button);
   --color-buttonHover: var(--buttonHover);
@@ -29,9 +35,12 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #292662;
+    --background2: #201e4d;
     --foreground: #ededed;
-    --primary: #ededed;
-    --secondary: #C31349;
+    --primary: #C31349;
+    --primary2: #970a34;
+    --secondary: #ededed;
+    --secondary2: #cfcfcf;
     --overWhite: #292662;
     --button: #292662;
     --buttonHover: #C31349;

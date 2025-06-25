@@ -12,7 +12,7 @@ interface NavLinkProps {
 export default function NavLink({isMobile = false, href, children, className = '', onClick = ()=>{}}: NavLinkProps) {
   const baseClass = isMobile
     ? "px-8 py-2"
-    : "py-4 px-4 rounded-lg hover:bg-secondary transition-colors duration-200";
+    : "py-4 px-4 rounded-lg hover:bg-background2 transition-colors duration-200";
   return (
     <Link
       href={href}

@@ -37,7 +37,7 @@ export default function Navbar() {
         </AnimatePresence>
     <header className="shadow-sm sticky top-0 z-20">
         <div>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center px-4 py-2 md:py-0">
                 {/* Mobile menu button */}
                 <button 
                     className="md:hidden p-2"
@@ -120,7 +120,7 @@ export default function Navbar() {
                             <NavLink
                                 isMobile={true}
                                 href="/" 
-                                className="pl-10 bg-secondary"
+                                className="pl-10 bg-background2"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Inicio
