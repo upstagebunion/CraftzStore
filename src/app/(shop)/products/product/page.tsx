@@ -1,14 +1,16 @@
-'use client';
-import { useSearchParams } from "next/navigation";
 import { Suspense } from 'react';
+import { ProductDetails } from '@/components/products/product-details';
 
 export default function ProductDetail() {
-    const searchParams = useSearchParams();
-    const id = searchParams.get('id');
     return (
     <div>Detalles del producto: 
-        <Suspense>
-            {id}
+        <Suspense fallback={
+            <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-gray-100"></div>
+            <p className="ml-4 text-lg text-gray-700 dark:text-gray-300">Cargando productos...</p>
+            </div>
+        }>
+            <ProductDetails />
         </Suspense>
     </div>
     );
