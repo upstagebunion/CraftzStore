@@ -1,6 +1,7 @@
 'use client';
 import { useSearchParams } from "next/navigation";
 import { CategoryFilters } from '@/components/products/categoryFilters'
+import { Suspense } from 'react';
 
 export default function Products() {
   const searchParams = useSearchParams();
@@ -11,8 +12,9 @@ export default function Products() {
       <h1 className="text-2xl font-bold">Productos</h1>
 
       {/* Filtros (client component) */}
-      <CategoryFilters currentCategory={category} />
-
+      <Suspense>
+        <CategoryFilters currentCategory={category} />
+      </Suspense>
       <p>
         Aqui se listan los productos
       </p>
