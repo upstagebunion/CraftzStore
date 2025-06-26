@@ -1,7 +1,9 @@
 'use client';
-import { useRouter, usePathname } from 'next/navigation';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
-export function CategoryFilters({ currentCategory }: { currentCategory?: string | undefined | null }) {
+export function CategoryFilters() {
+  const searchParams = useSearchParams();
+  const currentCategory = searchParams.get('category');
   const router = useRouter();
   const pathname = usePathname();
 
