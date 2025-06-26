@@ -6,7 +6,7 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default function HeroSection(){
     return (
-        <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-12 md:py-20">
+        <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-12">
         <div className="container mx-auto px-4">
           {/* Title - centered on all screens */}
           <motion.h1 

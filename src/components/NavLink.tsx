@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { MouseEventHandler, ReactNode } from 'react'
 
 interface NavLinkProps {
-  isMobile?: Boolean
+  isMobile?: boolean
   href: string
   children: ReactNode
   className?: string

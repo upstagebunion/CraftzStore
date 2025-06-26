@@ -93,7 +93,7 @@ export default function Carousel(){
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         key={activeItem.id}
-                        className="absolute inset-0 flex flex-col items-center justify-center px-4"
+                        className="absolute inset-0 flex flex-col items-center justify-center px-4 "
                         variants={variants}
                         initial="enter"
                         animate="center"
@@ -105,7 +105,7 @@ export default function Carousel(){
                         <p className="text-center">{activeItem.text}</p>
                         {activeItem.button && (
                             activeItem.button.url.startsWith('/') ? (
-                                <Link href={activeItem.button.url} className="py-2 px-4 mt-3 rounded-lg bg-primary hover:bg-primary2 text-sm front-medium">
+                                <Link href={activeItem.button.url} className="py-2 px-4 mt-3 rounded-lg bg-primary hover:bg-primary2 text-sm front-medium text-white">
                                     <motion.p   
                                         whileHover={{ scale: 1.05 }}
                                     >
@@ -117,7 +117,7 @@ export default function Carousel(){
                                     href={activeItem.button.url} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="py-3 px-4 mt-2 rounded-lg bg-primary hover:bg-primary2 text-sm font-medium"
+                                    className="py-3 px-4 mt-2 rounded-lg bg-primary hover:bg-primary2 text-sm font-medium text-white"
                                     whileHover={{ scale: 1.05 }}
                                 >
                                     {activeItem.button.text}
