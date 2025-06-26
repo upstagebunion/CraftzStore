@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function NotFound() {
@@ -39,12 +40,12 @@ export default function NotFound() {
       </button>
 
       {/* Botón para volver al inicio */}
-      <a
+      <Link
         href="/"
         className="mt-6 px-6 py-3 text-white font-semibold rounded-lg shadow-md bg-primary hover:bg-primary2 transition duration-300"
       >
         Volver al inicio
-      </a>
+      </Link>
     </div>
   );
 }
