@@ -2,7 +2,7 @@
 import { useSearchParams } from "next/navigation";
 import { CategoryFilters } from '@/components/products/categoryFilters'
 
-export default async function Products() {
+export default function Products() {
   const searchParams = useSearchParams();
   const category = searchParams.get('category');
 
