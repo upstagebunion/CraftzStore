@@ -1,7 +1,7 @@
 'use client';
 import { useRouter, usePathname } from 'next/navigation';
 
-export function CategoryFilters({ currentCategory }: { currentCategory?: string }) {
+export function CategoryFilters({ currentCategory }: { currentCategory?: string | undefined | null }) {
   const router = useRouter();
   const pathname = usePathname();
 

@@ -1,8 +1,10 @@
+'use client';
+import { useSearchParams } from "next/navigation";
 import { CategoryFilters } from '@/components/products/categoryFilters'
 
-export default async function Products({searchParams}:{searchParams: { category? : string }}) {
-  const search = await searchParams;
-  const category = search.category;
+export default async function Products() {
+  const searchParams = useSearchParams();
+  const category = searchParams.get('category');
 
   return (
     <div className="p-4">
