@@ -1,5 +1,11 @@
 import { Suspense } from 'react';
 import { ProductDetails } from '@/components/products/product-details';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "{Tipo de producto} {Diseno de producto} {caracteristicas clave}"
+  /*Ecample: Playera Manga Corta Cheemzilla - 100% algodon*/
+}
 
 export default function ProductDetail() {
     return (

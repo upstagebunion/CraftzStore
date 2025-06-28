@@ -4,10 +4,13 @@ import { ShoppingCartIcon, UserIcon, MagnifyingGlassIcon, Bars3Icon, XMarkIcon }
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import NavLink from '@/components/NavLink';
+import NavLink from '@/components/navbar/NavLink';
 import useDarkMode from '@/hooks/useDarkMode';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+    const pathname = usePathname();
+
     const isDarkMode = useDarkMode();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     useEffect(() => { //Used to avoid scroll when menu open, remove if deprecate
@@ -22,6 +25,22 @@ export default function Navbar() {
         }
         }, [mobileMenuOpen]
     )
+
+    const navLinks = [
+        {name: "INICIO", href: "/"},
+        {name: "CONOCENOS", href: "/about"},
+        {name: "TIENDA", href: "/products"},
+        {name: "REDES", href: "/contact"},
+        {name: "CUENTA", href:'#', children:
+            [
+                {name: "LISTA DE DESEOS", href: '/wishlist'},
+                {name: "MI CUENTA", href: '/profile'},
+                {name: "CARRITO", href: '/cart'}
+            ]
+        }
+    ]
+
+
     return (
     <>
         <AnimatePresence>
@@ -51,7 +70,7 @@ export default function Navbar() {
                     )}
                 </button>
                 {/* Logo */}
-                <Link href="/" className="relative h-10 w-32 md:w-48 block md:mr-0 mx-auto md:mx-0 flex justify-center items-center">
+                <Link href="/" className="relative h-10 w-32 md:w-30 lg:w-40 block md:mr-0 mx-auto md:mx-0 flex justify-center items-center">
                     <p className="text-center font-bold text-3xl md:hidden pt-1">CRAFTZ</p>
                     <Image 
                         src= {isDarkMode ? '/logo_horizontal_white.png' : '/logo_horizontal.png'}
@@ -63,26 +82,41 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex space-x-8">
-                    <NavLink href="/">Inicio</NavLink>
-                    <NavLink href="/products">productos</NavLink>
-                    <NavLink href="/about">about</NavLink>
-                    <NavLink href="/contact">contact</NavLink>
+                <nav className="hidden md:flex md:text-[11px] lg:text-[15px] lg:space-x-4 xl:text-[18px] xl:space-x-8">
+                    {navLinks.map((link) => {
+                        const hasDropdown = link.children && link.children.length > 0;
+                        const isPrimaryActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== '/');
+                        const isChildActive = hasDropdown && link.children.some(child =>
+                            pathname === child.href || (pathname.startsWith(child.href) && child.href !== '/')
+                        );
+                        const isActive = isPrimaryActive || isChildActive;
+                        return (
+                            <NavLink 
+                                href={link.href}
+                                key={link.name}
+                                className= {isActive ? 'font-bold bg-background2' : ''}
+                                hasDropdown={hasDropdown}
+                                dropdownItems={link.children}
+                            >
+                                {link.name}
+                            </NavLink>
+                        )
+                    })}
                 </nav>
 
                 {/* Icons */}
-                <div className="flex items-center space-x-4">
-                    <button className="p-2">
-                    <MagnifyingGlassIcon className="h-5 w-5" />
+                <div className="flex items-center md:space-x-2 lg:space-x-4">
+                    <button className="p-2 cursor-pointer rounded-lg hover:bg-background2 transition-colors duration-200">
+                        <MagnifyingGlassIcon className="h-5 w-5" />
                     </button>
-                    <button className="p-2 relative">
-                    <ShoppingCartIcon className="h-5 w-5" />
-                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                        0
-                    </span>
+                    <button className="p-2 relative cursor-pointer rounded-lg hover:bg-background2 transition-colors duration-200">
+                        <ShoppingCartIcon className="h-5 w-5" />
+                        <span className="absolute -top-1 -right-1 bg-primary text-onPrimary text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                            0
+                        </span>
                     </button>
-                    <Link href="/login" className="p-2">
-                    <UserIcon className="h-5 w-5" />
+                    <Link href="/login" className="p-2 rounded-lg hover:bg-background2 transition-colors duration-200">
+                        <UserIcon className="h-5 w-5" />
                     </Link>
                 </div>
             </div>
@@ -117,38 +151,24 @@ export default function Navbar() {
                             exit={{ y: -20 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <NavLink
-                                isMobile={true}
-                                href="/" 
-                                className="pl-10 bg-background2"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Inicio
-                            </NavLink>
-                            <NavLink
-                                isMobile={true}
-                                href="/products" 
-                                className=""
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Productos
-                            </NavLink>
-                            <NavLink
-                                isMobile={true}
-                                href="/about" 
-                                className=""
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Nosotros
-                            </NavLink>
-                            <NavLink
-                                isMobile={true}
-                                href="/contact" 
-                                className=""
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Contacto
-                            </NavLink>
+                            {navLinks.map((link) => {
+                                const isActive = pathname === link.href || 
+                                    (pathname.startsWith(link.href) && link.href !== '/');
+                                const hasDropdown = link.children != undefined;
+                                return (
+                                    <NavLink
+                                        isMobile={true}
+                                        href={link.href}
+                                        key={link.name}
+                                        className= {isActive ? 'font-bold bg-background2 pl-10' : ''}
+                                        hasDropdown={hasDropdown}
+                                        dropdownItems={link.children}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                )
+                            })}
                         </motion.nav>
                     </motion.div>
                 )}

@@ -9,11 +9,13 @@
   --foreground: #292662;
   --primary: #292662;
   --primary2: #201e4d;
+  --onPrimary: #d9d8f0;
   --secondary: #C31349;
   --secondary2: #970a34;
+  --onSecondary: #d9d8f0;
   --overWhite: #292662;
   --button: #292662;
-  --buttonHover: #C31349;
+  --buttonHover: #201e4d;
 }
 
 @theme inline {
@@ -39,11 +41,13 @@
     --foreground: #ededed;
     --primary: #C31349;
     --primary2: #970a34;
+    --onPrimary: #ededed;
     --secondary: #ededed;
     --secondary2: #cfcfcf;
+    --onSecondary: #292662;
     --overWhite: #292662;
     --button: #292662;
-    --buttonHover: #C31349;
+    --buttonHover: #201e4d;
   }
 }
 

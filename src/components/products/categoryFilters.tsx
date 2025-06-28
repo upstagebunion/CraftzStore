@@ -25,8 +25,8 @@ export function CategoryFilters() {
         onClick={() => handleFilter('')}
         className={`px-4 py-2 rounded-full ${
           !currentCategory 
-            ? 'bg-blue-600 text-white' 
-            : 'bg-gray-200 hover:bg-gray-300'
+            ? 'bg-primary text-onPrimary' 
+            : 'bg-primary hover:bg-primary2'
         }`}
       >
         Todos
@@ -38,7 +38,7 @@ export function CategoryFilters() {
           onClick={() => handleFilter(cat.slug)}
           className={`px-4 py-2 rounded-full ${
             currentCategory === cat.slug
-              ? 'bg-blue-600 text-white'
+              ? 'bg-primary text-white'
               : 'bg-gray-200 hover:bg-gray-300'
           }`}
         >
