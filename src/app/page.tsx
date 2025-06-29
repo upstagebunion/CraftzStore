@@ -1,5 +1,8 @@
 import HeroSection from '@/components/home-page/hero-section'
 import Carousel from '@/components/home-page/carousel';
+import CategoriesBannersCarousel from '@/components/home-page/categories-banners-carousel';
+import FeatureCarousel from '@/components/home-page/feature-carousel';
+import ReviewsCarousel from '@/components/home-page/reviews-carousel';
 
 export default function Home() {
   return (
@@ -9,6 +12,12 @@ export default function Home() {
 
       {/* Carousel Section */}
       <Carousel />
+
+      {/*key qualities*/}
+      <FeatureCarousel />
+
+      {/*Categories Banner Carousel*/}
+      <CategoriesBannersCarousel />
 
       {/* Featured Products */}
       <section className="bg-background py-16 mx-auto px-8">
@@ -28,6 +37,9 @@ export default function Home() {
           {/* Repeat for other products */}
         </div>
       </section>
+
+      {/* Reviews Carousel */}
+      <ReviewsCarousel />
 
       {/* Value Proposition */}
       <section className="bg-gray-100 text-overWhite py-16">

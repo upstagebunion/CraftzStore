@@ -2,46 +2,56 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBagIcon, TruckIcon, GiftIcon, TagIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { ShoppingBagIcon, TruckIcon, GiftIcon, ChevronLeftIcon, ChevronRightIcon, CloudIcon, CreditCardIcon } from '@heroicons/react/24/outline';
 
 export default function Carousel(){
     const carouselItems = [
         {
             id: 'item-1',
-            icon: <ShoppingBagIcon className="w-8 h-8 mx-auto" />,
+            icon: <TruckIcon className="w-8 h-8 mx-auto" />, //icono de camion
             title: "Envío Gratuito",
-            text: "En compras mayores a $699 MXN.",
-            button: null
+            text: "En compras mayores a $699.00 MXN.",
+            button: {
+                text: 'Conocer más',
+                url: '/detalles-de-envio'
+            }
         },
         {
             id: 'item-2',
-            icon: <TruckIcon className="w-8 h-8 mx-auto" />,
+            icon: <ShoppingBagIcon className="w-8 h-8 mx-auto" />, 
             title: "Entrega Rápida y Eficiente",
-            text: "Recibe tu pedido a tiempo con nuestro servicio eficiente y detallado.",
+            text: "Disfruta de un servicio ágil sin sacrificar la calidad. Descubre nuestros tiempos de procesamiento y envío detallados.",
             button: {
                 text: "Conoce más",
-                url: "/envio"
+                url: '/tiempos-de-procesamiento-y-envio'
             }
         },
         {
             id: 'item-3',
-            icon: <GiftIcon className="w-8 h-8 mx-auto" />,
-            title: "Confianza",
-            text: "Reputación excelente en mercado libre con más de 100+ ventas",
+            icon: <GiftIcon className="w-8 h-8 mx-auto" />, //Icono de palomita xd
+            title: "Calidad Premium Garantizada",
+            text: "Más de 100 ventas en Mercado Libre con reputación Intacta.",
             button: {
-                text: "Conoce más",
-                url: "https://mercadolibre.com/craftz"
+                text: "Comprobar en mercado libre",
+                url: "https://listado.mercadolibre.com.mx/_CustId_1783022037?item_id=MLM2093753497&category_id=MLM113782&seller_id=1783022037&client=recoview-selleritems&recos_listing=true#origin=vip&component=sellerData&typeSeller=classic"
             }
         },
         {
             id: 'item-4',
-            icon: <TagIcon className="w-8 h-8 mx-auto" />,
+            icon: <CreditCardIcon className="w-8 h-8 mx-auto" />, //icono de tarjeta
             title: "Hasta 3 MSI",
             text: "Pago a 3 meses sin intereses en compras mayores a $999 MXN.",
             button: {
                 text: "Conoce más",
                 url: "/pagos-y-meses"
             }
+        },
+        {
+            id: 'item-5',
+            icon: <CloudIcon className="w-8 h-8 mx-auto" />, //icono de nube
+            title: "Personalización Única",
+            text: "Sin límites, tu imaginas, nosotros creamos.",
+            button: null
         }
     ];
 
@@ -87,13 +97,13 @@ export default function Carousel(){
     const activeItem = carouselItems[currentCarouselIndex];
 
     return (
-    <section className="bg-background2 py-2">
+    <section className="bg-radial from-background to-background2 py-2">
         <div className="container mx-auto px-4 relative">
           <div className="relative h-45 overflow-hidden">
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         key={activeItem.id}
-                        className="absolute inset-0 flex flex-col items-center justify-center px-4 "
+                        className="absolute inset-0 flex flex-col items-center justify-center px-7 "
                         variants={variants}
                         initial="enter"
                         animate="center"
@@ -102,10 +112,10 @@ export default function Carousel(){
                     >
                         {activeItem.icon}
                         <h4 className="mt-1">{activeItem.title}</h4>
-                        <p className="text-center">{activeItem.text}</p>
+                        <p className="text-sm text-center">{activeItem.text}</p>
                         {activeItem.button && (
                             activeItem.button.url.startsWith('/') ? (
-                                <Link href={activeItem.button.url} className="py-2 px-4 mt-3 rounded-lg bg-primary hover:bg-primary2 text-sm front-medium text-white">
+                                <Link href={activeItem.button.url} className="py-1 md:py-2 px-4 mt-3 rounded-lg bg-primary hover:bg-primary2 text-sm front-medium text-white">
                                     <motion.p   
                                         whileHover={{ scale: 1.05 }}
                                     >
@@ -117,7 +127,7 @@ export default function Carousel(){
                                     href={activeItem.button.url} 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="py-3 px-4 mt-2 rounded-lg bg-primary hover:bg-primary2 text-sm font-medium text-white"
+                                    className="py-2 md:py-3 px-4 mt-2 rounded-lg bg-primary hover:bg-primary2 text-sm font-medium text-white"
                                     whileHover={{ scale: 1.05 }}
                                 >
                                     {activeItem.button.text}
@@ -130,17 +140,17 @@ export default function Carousel(){
            {/* Navigation Arrows */}
             <button
                 onClick={goToPrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary2 transition"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-primary/70 text-white p-2 rounded-full cursor-pointer hover:bg-primary transition"
                 aria-label="Previous slide"
             >
-                <ChevronLeftIcon className="w-6 h-6" />
+                <ChevronLeftIcon className="w-4 md:w-6 h-4 md:h-6" />
             </button>
             <button
                 onClick={goToNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-full cursor-pointer hover:bg-primary2 transition"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary/70 text-white p-2 rounded-full cursor-pointer hover:bg-primary transition"
                 aria-label="Next slide"
             >
-                <ChevronRightIcon className="w-6 h-6" />
+                <ChevronRightIcon className="w-4 md:w-6 h-4 md:h-6" />
             </button>
             {/* Pagination Dots */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2">
