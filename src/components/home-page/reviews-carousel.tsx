@@ -10,7 +10,7 @@ export default function ReviewsCarousel() {
             images: [
                 '/images/home-page/reviews/billie-elish/billie.jpg'
             ],
-            quote: '"Los recomiendo mucho, quedaron muy lindas las playeras que pedí.!!"',
+            quote: `"Los recomiendo mucho, quedaron muy lindas las playeras que pedí.!!"`,
             author: "Cliente Local.",
             date: "11 de Junio, 2024",
             rating: 5,
@@ -23,7 +23,7 @@ export default function ReviewsCarousel() {
                 '/images/home-page/reviews/ml/ml2.png',
                 '/images/home-page/reviews/ml/ml3.jpg'
             ],
-            quote: '"Me encantó el estampado y muy buena calidad en tela, sin duda se que mi pareja le encantará cuando se la de."',
+            quote: `"Me encantó el estampado y muy buena calidad en tela, sin duda se que mi pareja le encantará cuando se la de."`,
             author: "Cliente Mercado Libre",
             date: "20 de Agosto, 2024",
             rating: 5,
@@ -36,7 +36,7 @@ export default function ReviewsCarousel() {
                 '/images/home-page/reviews/whatsapp/w2.jpg',
                 '/images/home-page/reviews/whatsapp/w3.jpg'
             ],
-            quote: '"Exelente trabajo de la camisas , me gustaron como quedaron muchas gracias 🤩🫱🏽‍🫲🏽 Y la talla quedó perfecta 👌🏼"',
+            quote: `"Exelente trabajo de la camisas , me gustaron como quedaron muchas gracias 🤩🫱🏽‍🫲🏽 Y la talla quedó perfecta 👌🏼"`,
             author: "Cliente Local.",
             date: "10 de Septiembre, 2024",
             rating: 5,
@@ -49,7 +49,7 @@ export default function ReviewsCarousel() {
                 '/images/home-page/reviews/proem/p2.jpg',
                 '/images/home-page/reviews/proem/p3.jpg'
             ],
-            quote: '"Solo para presumir mi super playera de @craftz.personaliza"',
+            quote: `"Solo para presumir mi super playera de @craftz.personaliza"`,
             author: "Cliente Local.",
             date: "22 de Mayo, 2024",
             rating: 5,
