@@ -1,9 +1,4 @@
-'use client';
-import { useSearchParams } from "next/navigation";
-
-export function ProductDetails(){
-    const searchParams = useSearchParams();
-    const id = searchParams.get('id');
+export function ProductDetails({ id }: {id: string}){
 
     return(
         <p> {id} </p>

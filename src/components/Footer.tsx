@@ -8,16 +8,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Craftz - Personalización de Excelencia</h3>
+            <h3 className="text-lg font-semibold mb-4">Craftz - La mejor opción para regalos y personalización.</h3>
             <p className="text-sm">
-              En Craftz, nos dedicamos a transformar ideas en productos únicos y de alta calidad. Nuestra pasión por la personalización y el detalle se refleja en cada prenda y accesorio que creamos. Utilizando materiales premium y técnicas avanzadas, garantizamos durabilidad y estilo en cada diseño. Descubre la diferencia con Craftz y lleva tu creatividad al siguiente nivel.
+              Nos dedicamos a transformar ideas en productos únicos y de alta calidad. Nuestra pasión por la personalización y el detalle se refleja en cada prenda y accesorio que creamos.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
-            <ul className="space-y-2">
+            <h4 className="text-lg font-semibold mb-1">Enlaces Rápidos</h4>
+            <ul className="space-y-2 mb-4">
               <li>
                 <Link href="/about" className="hover:text-white transition">
                   Nosotros
@@ -36,6 +36,14 @@ export default function Footer() {
               <li>
                 <Link href="/faq" className="hover:text-white transition">
                   Preguntas Frecuentes
+                </Link>
+              </li>
+            </ul>
+            <h4 className="text-lg font-semibold mb-1">Enlaces Importantes</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/privacy-policy" className="hover:text-white transition">
+                  Aviso de privacidad
                 </Link>
               </li>
             </ul>

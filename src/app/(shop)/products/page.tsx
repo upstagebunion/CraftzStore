@@ -1,30 +1,73 @@
-import { CategoryFilters } from '@/components/products/categoryFilters'
-import { Suspense } from 'react';
-import { Metadata } from 'next';
+import { ServerStackIcon } from '@heroicons/react/24/outline';
+import { ProductCard } from '@/components/products/listed-products/product-card';
+import { SearchFilter } from '@/components/products/filters/search-filter';
+import { CategoryFilter } from '@/components/products/filters/category-filter';
+import { PriceFilter } from '@/components/products/filters/price-filter';
+import { FeaturedProducts } from '@/components/products/listed-products/featured-products';
+import { PromoBanners } from '@/components/products/listed-products/promo-banners';
+import { Pagination } from '@/components/products/listed-products/pagination';
 
-export const metadata: Metadata = {
-  title: "Productos"
-}
-
-export default function Products() {
-  
+export default function ProductsPage() {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold">Productos</h1>
+    <div className="min-h-screen bg-background2">
+        {/* TODO: Adjust the mobile version of page */}
+      {/* Mobile Filters Button */}
+      <div className="md:hidden sticky top-0 z-10 bg-background p-4 shadow-sm">
+        <button className="flex items-center gap-2 text-foreground">
+          <ServerStackIcon /> Filtros
+        </button>
+      </div>
 
-      {/* Filtros (client component) */}
-      <Suspense fallback={
-        <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-gray-100"></div>
-          <p className="ml-4 text-lg text-gray-700 dark:text-gray-300">Cargando productos...</p>
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Sidebar Filters - Desktop */}
+          <aside className="hidden md:block w-64 flex-shrink-0">
+            <div className="sticky top-24 space-y-8">
+              <SearchFilter />
+              <CategoryFilter />
+              <PriceFilter />
+              <FeaturedProducts />
+              <PromoBanners />
+            </div>
+          </aside>
+
+          {/* Main Content */}
+          <main className="flex-1">
+            {/* Mobile Filters Content (collapsible) */}
+            <div className="md:hidden mb-8">
+              <SearchFilter />
+              <CategoryFilter />
+              <PriceFilter />
+            </div>
+
+            {/* Product Grid */}
+            <div className="mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <ProductCard 
+                    key={i}
+                    id={i.toString()}
+                    image={`https://res.cloudinary.com/craftzstorage/image/upload/v1751499155/Shirt_Front_3D_72_ppp4_gaunmu.jpg`}
+                    category="Electrónicos"
+                    title={`Producto ${i + 1}`}
+                    price={[219.00, 269.00]}
+                    isWishlisted={i % 3 === 0}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Featured and Banners */}
+            <div className="md:hidden space-y-8">
+              <FeaturedProducts />
+              <PromoBanners />
+            </div>
+
+            {/* Pagination */}
+            <Pagination currentPage={1} totalPages={5} />
+          </main>
         </div>
-      }>
-        <CategoryFilters />
-      </Suspense>
-      <p>
-        Aqui se listan los productos
-      </p>
-      {/*category*/}
+      </div>
     </div>
   );
 }

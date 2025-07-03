@@ -193,14 +193,14 @@ export default function ReviewsCarousel() {
                     {/* Flechas de navegación */}
                     <button
                         onClick={goToPrevReview}
-                        className="absolute mouse-pointer left-1 md:left-3 lg:left-5 top-1/2 -translate-y-1/2 bg-white/80 text-gray-800 px-1 md:px-4 py-4 rounded-full shadow-md hover:bg-white transition"
+                        className="absolute cursor-pointer left-1 md:left-3 lg:left-5 top-1/2 -translate-y-1/2 bg-foreground/30 text-white px-1 md:px-4 py-4 rounded-full shadow-md hover:bg-foreground/50 transition"
                         aria-label="Review anterior"
                     >
                         <ChevronLeftIcon className="w-6 h-6" />
                     </button>
                     <button
                         onClick={goToNextReview}
-                        className="absolute mouse-pointer right-1 md:right-3 lg:right-5 top-1/2 -translate-y-1/2 bg-white/80 text-gray-800 px-1 md:px-4 py-4 rounded-full shadow-md hover:bg-white transition"
+                        className="absolute cursor-pointer right-1 md:right-3 lg:right-5 top-1/2 -translate-y-1/2 bg-foreground/30 text-white px-1 md:px-4 py-4 rounded-full shadow-md hover:bg-foreground/50 transition"
                         aria-label="Siguiente review"
                     >
                         <ChevronRightIcon className="w-6 h-6" />

@@ -7,7 +7,8 @@ export const metadata: Metadata = {
   /*Ecample: Playera Manga Corta Cheemzilla - 100% algodon*/
 }
 
-export default function ProductDetail() {
+export default async function ProductDetail({ params } : {params: Promise<{ productId: string }>;}) {
+    const { productId } = await params;
     return (
     <div>Detalles del producto: 
         <Suspense fallback={
@@ -16,7 +17,7 @@ export default function ProductDetail() {
             <p className="ml-4 text-lg text-gray-700 dark:text-gray-300">Cargando productos...</p>
             </div>
         }>
-            <ProductDetails />
+            <ProductDetails id = {productId}/>
         </Suspense>
     </div>
     );

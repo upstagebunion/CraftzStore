@@ -1,8 +1,10 @@
 import HeroSection from '@/components/home-page/hero-section'
 import Carousel from '@/components/home-page/carousel';
+import Image from 'next/image';
 import CategoriesBannersCarousel from '@/components/home-page/categories-banners-carousel';
 import FeatureCarousel from '@/components/home-page/feature-carousel';
 import ReviewsCarousel from '@/components/home-page/reviews-carousel';
+import { ProductCard } from '@/components/products/listed-products/product-card';
 
 export default function Home() {
   return (
@@ -20,21 +22,19 @@ export default function Home() {
       <CategoriesBannersCarousel />
 
       {/* Featured Products */}
-      <section className="bg-background py-16 mx-auto px-8">
+      <section className="bg-background2 py-16 mx-auto px-8">
         <h2 className="text-3xl font-bold text-center mb-12">Productos Populares</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Product cards would go here */}
-          <div className="text-overWhite bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="h-64 bg-gray-200"></div>
-            <div className="p-4">
-              <h3 className="font-bold text-xl mb-2">Playera Manga corta | Calacas chidas</h3>
-              <p>100% Algodón</p>
-              <button className="mt-4 w-full bg-button text-white py-2 rounded hover:bg-buttonHover transition">
-                Mas detalles
-              </button>
-            </div>
-          </div>
-          {/* Repeat for other products */}
+          <ProductCard 
+            key={0}
+            id={'playera-manga-corta-por-algo-traigo-audifonos'}
+            image={`https://res.cloudinary.com/craftzstorage/image/upload/v1751499155/Shirt_Front_3D_72_ppp4_gaunmu.jpg`}
+            category="Electrónicos"
+            title={`Producto 1`}
+            price={[219.00, 269.00]}
+            isWishlisted={false}
+          />
         </div>
       </section>
 

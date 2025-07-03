@@ -11,14 +11,14 @@ export default function CategoriesBannersCarousel() {
             image: '/images/home-page/categories-banners/hoodies-banner.jpg', // Ruta a tu imagen
             title: "Hoodies",
             description: "Sudaderas con capucha de alta calidad",
-            url: "/categoria/hoodies"
+            url: "/products?category=hoodies"
         },
         {
             id: 'tshirts',
             image: '/images/home-page/categories-banners/oversize-banner.jpg',
             title: "Oversized",
             description: "Playeras cortes oversized",
-            url: "/categoria/camisetas"
+            url: "/products?category=oversized"
         },
         /*{
             id: 'pants',
@@ -132,14 +132,14 @@ export default function CategoriesBannersCarousel() {
                 {/* Navigation Arrows */}
                 <button
                     onClick={goToPrev}
-                    className="absolute left-5 md:left-4 top-1/2 -translate-y-1/2 bg-white/30 text-white p-2 rounded-full cursor-pointer hover:bg-white/50 transition backdrop-blur-sm"
+                    className="absolute left-5 md:left-4 top-1/2 -translate-y-1/2 bg-foreground/30 text-white p-2 rounded-full cursor-pointer hover:bg-foreground/50 transition backdrop-blur-sm"
                     aria-label="Previous slide"
                 >
                     <ChevronLeftIcon className="w-4 md:w-6 h-4 md:h-6" />
                 </button>
                 <button
                     onClick={goToNext}
-                    className="absolute right-5 md:right-4 top-1/2 -translate-y-1/2 bg-white/30 text-white p-2 rounded-full cursor-pointer hover:bg-white/50 transition backdrop-blur-sm"
+                    className="absolute right-5 md:right-4 top-1/2 -translate-y-1/2 bg-foreground/30 text-white p-2 rounded-full cursor-pointer hover:bg-foreground/50 transition backdrop-blur-sm"
                     aria-label="Next slide"
                 >
                     <ChevronRightIcon className="w-4 md:w-6 h-4 md:h-6" />
