@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function AnimatedComponentsAboutPage(){
     // Animaciones
@@ -138,12 +139,12 @@ export default function AnimatedComponentsAboutPage(){
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Explora nuestros productos</h2>
             <p className="text-xl mb-8">Descubre nuestra colección de productos personalizables</p>
-            <a 
+            <Link
               href="/products" 
               className="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl"
             >
               Ver Catálogo
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

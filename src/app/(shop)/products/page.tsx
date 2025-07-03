@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { ServerStackIcon } from '@heroicons/react/24/outline';
 import { ProductCard } from '@/components/products/listed-products/product-card';
 import { SearchFilter } from '@/components/products/filters/search-filter';
@@ -6,6 +7,10 @@ import { PriceFilter } from '@/components/products/filters/price-filter';
 import { FeaturedProducts } from '@/components/products/listed-products/featured-products';
 import { PromoBanners } from '@/components/products/listed-products/promo-banners';
 import { Pagination } from '@/components/products/listed-products/pagination';
+
+export const metadata: Metadata = {
+  title: "Productos"
+}
 
 export default function ProductsPage() {
   return (

@@ -14,14 +14,12 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ id, image, category, title, price, isWishlisted }: ProductCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
+
   const [isWishlist, setIsWishlist] = useState(isWishlisted);
 
   return (
     <div 
       className="flex flex-col items-center bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <Link href={`/products/${id}`} className="block w-full mb-4">
         <div className="aspect-square bg-gray-100 relative">
