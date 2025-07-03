@@ -1,6 +1,5 @@
 import HeroSection from '@/components/home-page/hero-section'
 import Carousel from '@/components/home-page/carousel';
-import Image from 'next/image';
 import CategoriesBannersCarousel from '@/components/home-page/categories-banners-carousel';
 import FeatureCarousel from '@/components/home-page/feature-carousel';
 import ReviewsCarousel from '@/components/home-page/reviews-carousel';
