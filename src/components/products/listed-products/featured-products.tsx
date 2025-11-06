@@ -1,7 +1,7 @@
 export function FeaturedProducts() {
   return (
     <div className="bg-background p-4 rounded-lg shadow-sm">
-      <h3 className="font-medium mb-4">Productos Destacados</h3>
+      <h3 className="font-medium text-lg mb-4">Productos Destacados</h3>
       <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
         {Array.from({ length: 4 }).map((_, i) => (
           <div key={i} className="text-center">

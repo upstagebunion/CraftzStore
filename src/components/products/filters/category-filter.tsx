@@ -20,7 +20,7 @@ export function CategoryFilter() {
 
   return (
     <div className="bg-background p-4 rounded-lg shadow-sm">
-      <h3 className="font-medium mb-3">Categorías</h3>
+      <h3 className="font-medium text-lg mb-3">Categorías</h3>
       <div className="max-h-96 overflow-y-auto">
         {categories.map((category) => (
           <div key={category.name} className="mb-2 last:mb-0 ">

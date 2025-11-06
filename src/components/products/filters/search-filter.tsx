@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 export function SearchFilter() {
   return (
     <div className="bg-background p-4 rounded-lg shadow-sm">
-      <h3 className="font-medium mb-3">Buscar productos</h3>
+      <h3 className="font-medium text-lg mb-3">Buscar productos</h3>
       <div className="relative">
         <input
           type="text"

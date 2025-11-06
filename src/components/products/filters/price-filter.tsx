@@ -3,7 +3,7 @@
 export function PriceFilter() {
   return (
     <div className="bg-background p-4 rounded-lg shadow-sm">
-      <h3 className="font-medium mb-3">Rango de precios</h3>
+      <h3 className="font-medium text-lg mb-3">Rango de precios</h3>
       <div className="space-y-4">
         <div className="flex justify-between text-sm text-foreground">
           <span>$0</span>

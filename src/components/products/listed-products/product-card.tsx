@@ -33,9 +33,9 @@ export function ProductCard({ id, image, category, title, price, isWishlisted }:
       
         <div className="px-4 pt-4">
           <span className="text-xs text-azulCraftz">{category}</span>
-          <h3 className="text-azulCraftz font-medium mt-1 mb-2 line-clamp-2">{title}</h3>
+          <h3 className="text-azulCraftz font-medium text-[18px] mt-1 mb-2 line-clamp-2">{title}</h3>
           
-          <div className="text-azulCraftz flex justify-between items-center">
+          <div className="text-azulCraftz flex text-[15px] justify-between items-center">
             <div>
               {price[0] === price[1] ? (
                 <span className="font-bold">${price[0].toFixed(2)}</span>
@@ -48,7 +48,7 @@ export function ProductCard({ id, image, category, title, price, isWishlisted }:
       </Link>
       <button 
         onClick={() => setIsWishlist(!isWishlist)}
-        className={`flex items-center justify-center cursor-pointer p-2 rounded-full text-sm font-medium text-foreground text-white
+        className={`flex items-center justify-center cursor-pointer p-2 rounded-full text-xs font-medium text-foreground text-white
           ${isWishlist ? 'bg-rojoCraftz hover:bg-rojoCraftz/80' : 'bg-button  hover:bg-buttonHover'} 
           transition duration-300 ease-in-out w-11/12 mb-4`}
       >

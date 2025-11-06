@@ -30,6 +30,7 @@ export default function Navbar() {
         {name: "INICIO", href: "/"},
         {name: "CONOCENOS", href: "/about"},
         {name: "TIENDA", href: "/products"},
+        {name: "ADMIN", href: "/admin"},
         {name: "REDES", href: "/contact"},
         {name: "CUENTA", href:'#', children:
             [
