@@ -33,7 +33,7 @@ export default function RegisterPage() {
     try {
       await apiService.register({
         nombre: formData.nombre,
-        email: formData.email,
+        correo: formData.email,
         password: formData.password
       });
       
