@@ -1,13 +1,28 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
 
+interface LoginResponse {
+  token: string;
+  usuario: {
+    id: string;
+    nombre: string;
+    correo: string;
+    rol: string;
+    ultimoAcceso: string;
+  };
+}
+
 class ApiService {
   private async request<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const url = `${API_BASE_URL}${endpoint}`;
+    
+    // Get token from localStorage if available
+    const token = typeof window !== 'undefined' ? localStorage.getItem('auth_token') : null;
     
     try {
       const response = await fetch(url, {
         headers: {
           'Content-Type': 'application/json',
+          ...(token && { 'Authorization': `Bearer ${token}` }),
           ...options?.headers,
         },
         ...options,
@@ -140,6 +155,29 @@ class ApiService {
       console.error('Backend connection failed:', error);
       return false;
     }
+  }
+
+  // Authentication
+  async login(correo: string, password: string): Promise<LoginResponse> {
+    return this.request<LoginResponse>('/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({ correo, password }),
+    });
+  }
+
+  async register(userData: {
+    nombre: string;
+    correo: string;
+    password: string;
+  }) {
+    return this.request('/auth/register', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+    });
+  }
+
+  async verifyToken() {
+    return this.request('/auth/tokenVerify');
   }
 }
 

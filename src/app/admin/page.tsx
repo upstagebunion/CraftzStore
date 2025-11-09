@@ -6,6 +6,7 @@ import { apiService } from '@/lib/api';
 import { ProductoOnline, ProductoBase } from '@/types/product';
 import { CreateProductModal } from '@/components/admin/create-product-modal';
 import { CategoriesSection } from '@/components/admin/categories-section';
+import { ProtectedRoute } from '@/components/auth/protected-route';
 
 export default function AdminPage() {
   const [productos, setProductos] = useState<ProductoOnline[]>([]);
@@ -25,7 +26,7 @@ export default function AdminPage() {
       // Test connection first
       const isConnected = await apiService.testConnection();
       if (!isConnected) {
-        throw new Error('No se puede conectar al backend. Verifica que esté ejecutándose en http://localhost:5001');
+        throw new Error('No se puede conectar al backend.');
       }
       
       const [productosResponse, productosBaseResponse] = await Promise.all([
@@ -60,7 +61,8 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <ProtectedRoute requireAdmin={true}>
+      <div className="min-h-screen bg-background p-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <div>
@@ -201,7 +203,8 @@ export default function AdminPage() {
             onProductCreated={handleProductCreated}
           />
         )}
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }

@@ -7,10 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import NavLink from '@/components/navbar/NavLink';
 import useDarkMode from '@/hooks/useDarkMode';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/contexts/auth-context';
 
 export default function Navbar() {
     const pathname = usePathname();
-
+    const { user, logout } = useAuth();
     const isDarkMode = useDarkMode();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     useEffect(() => { //Used to avoid scroll when menu open, remove if deprecate
@@ -116,9 +117,21 @@ export default function Navbar() {
                             0
                         </span>
                     </button>
-                    <Link href="/login" className="p-2 rounded-lg hover:bg-background2 transition-colors duration-200">
-                        <UserIcon className="h-5 w-5" />
-                    </Link>
+                    {user ? (
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm text-foreground hidden md:block">{user.nombre}</span>
+                            <button 
+                                onClick={logout}
+                                className="p-2 rounded-lg hover:bg-background2 transition-colors duration-200 text-sm"
+                            >
+                                Salir
+                            </button>
+                        </div>
+                    ) : (
+                        <Link href="/login" className="p-2 rounded-lg hover:bg-background2 transition-colors duration-200">
+                            <UserIcon className="h-5 w-5" />
+                        </Link>
+                    )}
                 </div>
             </div>
 

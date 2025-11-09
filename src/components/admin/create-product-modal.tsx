@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { apiService } from '@/lib/api';
 import { ProductoBase, Variante, Calidad, Color } from '@/types/product';
+import { ImageUpload } from './image-upload';
 
 interface CreateProductModalProps {
   productosBase: ProductoBase[];
@@ -38,6 +39,8 @@ export function CreateProductModal({ productosBase, onClose, onProductCreated }:
     colorRequerido: '',
     categorias: [] as string[]
   });
+  
+  const [imagenes, setImagenes] = useState<Array<{ url: string; esPrincipal: boolean; orden: number }>>([]);
 
   useEffect(() => {
     loadCategorias();
@@ -97,6 +100,7 @@ export function CreateProductModal({ productosBase, onClose, onProductCreated }:
         descripcionCorta: formData.descripcionCorta,
         descripcion: formData.descripcion,
         diseno: formData.diseno,
+        imagenes: imagenes.map((img, index) => ({ ...img, orden: index + 1 })),
         varianteSugerida: {
           corte: selectedVariante._id,
           calidad: selectedCalidad._id,
@@ -142,14 +146,11 @@ export function CreateProductModal({ productosBase, onClose, onProductCreated }:
               onChange={(e) => handleProductoBaseChange(e.target.value)}
             >
               <option value="">Seleccionar producto base</option>
-              {productosBase.map((producto) => {
-                console.log('Producto:', producto);
-                return (
-                  <option key={producto._id} value={producto._id}>
-                    {producto?.nombre || 'Sin nombre'} - {producto?.categoria?.nombre || 'Sin categoría'}
-                  </option>
-                );
-              })}
+              {productosBase.map((producto) => (
+                <option key={producto._id} value={producto._id}>
+                  {producto?.nombre || 'Sin nombre'} - {producto?.categoria?.nombre || 'Sin categoría'}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -344,6 +345,12 @@ export function CreateProductModal({ productosBase, onClose, onProductCreated }:
               )}
             </div>
           </div>
+
+          <ImageUpload
+            images={imagenes}
+            onImagesChange={setImagenes}
+            maxImages={5}
+          />
 
           <div className="flex items-center gap-4">
             <label className="flex items-center gap-2">
