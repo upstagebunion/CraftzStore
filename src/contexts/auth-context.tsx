@@ -36,7 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           await apiService.verifyToken();
           setToken(storedToken);
           setUser(JSON.parse(storedUser));
-        } catch (error) {
+        } catch {
           // Token is invalid, clear storage
           localStorage.removeItem('auth_token');
           localStorage.removeItem('auth_user');

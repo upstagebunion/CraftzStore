@@ -36,9 +36,9 @@ export default function AdminPage() {
       
       setProductos(productosResponse.productos);
       setProductosBase(productosBaseResponse);
-    } catch (error) {
-      console.error('Error loading data:', error);
-      alert(`Error: ${error instanceof Error ? error.message : 'Error desconocido'}`);
+    } catch (err) {
+      console.error('Error loading data:', err);
+      alert(`Error: ${err instanceof Error ? err.message : 'Error desconocido'}`);
     } finally {
       setLoading(false);
     }
