@@ -38,7 +38,7 @@ export default function RegisterPage() {
       });
       
       router.push('/login?message=Cuenta creada exitosamente');
-    } catch (error) {
+    } catch {
       setError('Error al crear la cuenta');
     } finally {
       setLoading(false);
